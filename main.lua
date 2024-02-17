@@ -1,4 +1,4 @@
-if jynxGetVersion() ~= "V0" then
+if jynxgetversion() ~= "V0.0.0.0" then
 	mb_schedscript(game:HttpGet("https://raw.githubusercontent.com/JynxHost/Jynx-Android-Assets/main/outdated.lua", true))()
 	return
 end
