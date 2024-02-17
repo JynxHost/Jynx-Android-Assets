@@ -1,5 +1,6 @@
 if jynxGetVersion() ~= "V0" then
-  error("Update!")
+	mb_schedscript(game:HttpGet("https://raw.githubusercontent.com/JynxHost/Jynx-Android-Assets/main/outdated.lua", true))()
+	return
 end
 
 local _TextButton = Instance.new("TextButton")
@@ -109,6 +110,7 @@ _Execute.RootLocalizationTable = nil
 _Execute.SelectionImageObject = nil
 
 _ScreenGui.RootLocalizationTable = nil
+_ScreenGui.Parent = game.CoreGui
 
 ____UICorner.Parent = _Clipboard
 ____UICorner.CornerRadius = UDim.new(1, 0)
