@@ -128,6 +128,7 @@ _Frame.RootLocalizationTable = nil
 _Frame.BackgroundTransparency = 0.5
 _Frame.SelectionImageObject = nil
 _Frame.Position = UDim2.new(0.5, 0, 0.5, 0)
+_Frame.Visible = false
 
 _TextBox.Active = true
 _TextBox.BorderSizePixel = 0
