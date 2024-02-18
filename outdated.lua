@@ -50,6 +50,7 @@ _UICorner.Parent = _TextButton
 
 _ScreenGui.DisplayOrder = 99999999
 _ScreenGui.RootLocalizationTable = nil
+_ScreenGui.IgnoreGuiInset = true
 _ScreenGui.Parent = game.CoreGui
 
 _Background.Active = true
