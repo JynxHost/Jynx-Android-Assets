@@ -1,5 +1,5 @@
 if jynxgetversion() ~= "V0.0.0.0" then
-	mb_schedscript(game:HttpGet("https://raw.githubusercontent.com/JynxHost/Jynx-Android-Assets/main/outdated.lua", true))()
+	mb_schedscript(game:HttpGet("https://raw.githubusercontent.com/JynxHost/Jynx-Android-Assets/main/outdated.lua", true))
 	return
 end
 
@@ -159,7 +159,7 @@ _Clear.MouseButton1Click:Connect(function()
 	_TextBox.Text = ""
 end)
 _Execute.MouseButton1Click:Connect(function()
-	mb_schedscript(box.Text)
+	mb_schedscript(_TextBox.Text)
 end)
 _Clipboard.MouseButton1Click:Connect(function()
 	mb_schedscript(getclipboard())
