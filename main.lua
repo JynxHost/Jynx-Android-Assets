@@ -110,6 +110,7 @@ _Execute.RootLocalizationTable = nil
 _Execute.SelectionImageObject = nil
 
 _ScreenGui.RootLocalizationTable = nil
+_ScreenGui.IgnoreGuiInset = true
 _ScreenGui.Parent = game.CoreGui
 
 ____UICorner.Parent = _Clipboard
