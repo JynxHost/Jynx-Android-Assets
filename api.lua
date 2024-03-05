@@ -2,6 +2,13 @@ local env = getgenv()
 
 local VirutalInputManager = game:GetService("VirtualInputManager")
 local Mouse = game:GetService("Players").LocalPlayer:GetMouse()
+local EUI = Instance.new("Folder", game.CoreGui)
+EUI.Name = "Jy-nx E-xe-cute UI"
+sethiddenproperty(EUI, "RobloxLocked", true)
+local HUI = Instance.new("Folder", game.CoreGui)
+HUI.Name = "Jy-nx Hidden UI"
+sethiddenproperty(HUI, "RobloxLocked", true)
+
 local JynxInternal = {}
 JynxInternal.writefile = writefile
 JynxInternal.appendfile = appendfile
@@ -13,6 +20,7 @@ JynxInternal.makefolder = makefolder
 JynxInternal.delfolder = delfolder
 JynxInternal.delfile = delfile
 JynxInternal.listfiles = listfiles
+JynxInternal.EUI = EUI
 
 --REDEFINITION
 local function hookAPI(name, new)
@@ -58,7 +66,9 @@ env.mouse2click = function()
 end
 
 env.identifyexecutor = function() return "jynx" end
-env.isjynx
+env.isjynx = true
+env.gethui = function() return HUI end
+env.get_hidden_gui = function() return HUI end
 
 --before
 local jynxSetup = JynxInternal.isfolder("jynx")
