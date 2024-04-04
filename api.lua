@@ -56,6 +56,7 @@ if not jynxSetup then
 	JynxInternal.makefolder("jynx/workspace")
 	JynxInternal.makefolder("jynx/bin")
 	JynxInternal.writefile("jynx/bin/version.txt", jynxgetversion())
+	JynxInternal.writefile("jynx/bin/settings.json", "{}")
 end
 
 local lastVersion = JynxInternal.readfile("jynx/bin/version.txt")
