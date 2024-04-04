@@ -4,9 +4,6 @@ if jynxgetversion() ~= "V0.1.0.0" then
 end
 local JynxInternal = loadstring(game:HttpGet("https://raw.githubusercontent.com/JynxHost/Jynx-Android-Assets/main/api.lua", true))()
 
---Compiled using SIMPLE GUI COMPILER
---SIMPLE GUI CONVERTER BY R_299P
-
 --##Variables##
 local _Init = Instance.new("LocalScript")
 local ______________UICorner = Instance.new("UICorner")
