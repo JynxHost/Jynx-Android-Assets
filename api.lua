@@ -58,4 +58,10 @@ if not jynxSetup then
 	JynxInternal.writefile("jynx/bin/version.txt", jynxgetversion())
 end
 
+local lastVersion = JynxInternal.readfile("jynx/bin/version.txt")
+if lastVersion ~= jynxgetversion() then
+	JynxInternal.updatedfrom = lastVersion
+	JynxInternal.writefile("jynx/bin/version.txt", jynxgetversion())
+end
+
 return JynxInternal
