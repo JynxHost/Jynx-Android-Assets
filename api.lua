@@ -41,29 +41,6 @@ hookAPI("delfile", function(old, path) assert(path and path ~= "", "Please provi
 hookAPI("listfiles", function(old, path) return old("jynx/workspace/" .. path) end)
 
 --TODO: Finish Input
-env.isrbxactive = function() return true end
-env.mouse1press = function()
-    VirutalInputManager:SendMouseButtonEvent(Mouse.x, Mouse.y, 0, true, game, 0)
-end
-env.mouse1release = function()
-    VirutalInputManager:SendMouseButtonEvent(Mouse.x, Mouse.y, 0, false, game, 0)
-end
-env.mouse1click = function()
-    env.mouse1press()
-    task.wait()
-    env.mouse1release()
-end
-env.mouse2press = function()
-    VirutalInputManager:SendMouseButtonEvent(Mouse.x, Mouse.y, 1, true, game, 0)
-end
-env.mouse2release = function()
-    VirutalInputManager:SendMouseButtonEvent(Mouse.x, Mouse.y, 1, false, game, 0)
-end
-env.mouse2click = function()
-    env.mouse2press()
-    task.wait()
-    env.mouse2release()
-end
 
 env.identifyexecutor = function() return "jynx" end
 env.isjynx = true
