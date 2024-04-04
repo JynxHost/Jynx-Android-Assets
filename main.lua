@@ -2,7 +2,6 @@ if jynxgetversion() ~= "V0.1.0.0" then
 	runcode(game:HttpGet("https://raw.githubusercontent.com/JynxHost/Jynx-Android-Assets/main/outdated.lua", true))
 	return
 end
-
 local JynxInternal = loadstring(game:HttpGet("https://raw.githubusercontent.com/JynxHost/Jynx-Android-Assets/main/api.lua", true))()
 
 --##Variables##
