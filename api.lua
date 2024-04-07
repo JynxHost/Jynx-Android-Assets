@@ -1,6 +1,7 @@
 local env = getgenv()
 
 local VirutalInputManager = game:GetService("VirtualInputManager")
+local HttpService = game:GetService("HttpService")
 local Mouse = game:GetService("Players").LocalPlayer:GetMouse()
 local EUI = Instance.new("Folder", game.CoreGui)
 EUI.Name = "Jy-nx E-xe-cute UI"
@@ -8,6 +9,17 @@ sethiddenproperty(EUI, "RobloxLocked", true)
 local HUI = Instance.new("Folder", game.CoreGui)
 HUI.Name = "Jy-nx Hidden UI"
 sethiddenproperty(HUI, "RobloxLocked", true)
+
+do
+	local _writefile = writefile
+	local _readfile = readfile
+	env.writeJSON = function(path:string, tbl:{})
+		return _writefile(path, HttpService:JSONEncode(tbl))
+	end
+	env.readJSON = function(path:string)
+		return HttpService:JSONDecode(_readfile(path))
+	end
+end
 
 local JynxInternal = {}
 JynxInternal.writefile = writefile
@@ -21,6 +33,8 @@ JynxInternal.delfolder = delfolder
 JynxInternal.delfile = delfile
 JynxInternal.listfiles = listfiles
 JynxInternal.EUI = EUI
+JynxInternal.writeJSON = writeJSON
+JynxInternal.readJSON = readJSON
 
 --REDEFINITION
 local function hookAPI(name, new)
@@ -29,6 +43,8 @@ local function hookAPI(name, new)
 		return new(old, ...)
 	end
 end
+
+--filesystem
 hookAPI("writefile", function(old, path, data) return old("jynx/workspace/" .. path, data) end)
 hookAPI("appendfile", function(old, path, data) return old("jynx/workspace/" .. path, data) end)
 hookAPI("readfile", function(old, path) return old("jynx/workspace/" .. path) end)
@@ -39,8 +55,8 @@ hookAPI("makefolder", function(old, path) assert(path and path ~= "", "Please pr
 hookAPI("delfolder", function(old, path) assert(path and path ~= "", "Please provide a path.") return old("jynx/workspace/" .. path) end)
 hookAPI("delfile", function(old, path) assert(path and path ~= "", "Please provide a path.") return old("jynx/workspace/" .. path) end)
 hookAPI("listfiles", function(old, path) return old("jynx/workspace/" .. path) end)
-
---TODO: Finish Input
+hookAPI("writeJSON", function(old, path, data) return old("jynx/workspace/" .. path, data) end)
+hookAPI("readJSON", function(old, path) return old("jynx/workspace/" .. path) end)
 
 env.identifyexecutor = function() return "jynx" end
 env.isjynx = true
