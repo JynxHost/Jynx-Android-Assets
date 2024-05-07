@@ -1,5 +1,5 @@
 if jynxgetversion() ~= "V0.1.0.0" then
-	loadstring(game:HttpGet("https://raw.githubusercontent.com/JynxHost/Jynx-Android-Assets/main/outdated.lua", true))
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/JynxHost/Jynx-Android-Assets/main/outdated.lua", true))()
 	return
 end
 local JynxInternal = loadstring(game:HttpGet("https://raw.githubusercontent.com/JynxHost/Jynx-Android-Assets/main/api.lua", true))()
@@ -3149,7 +3149,7 @@ task.spawn(function()
 	end)
 	
 	for _, a in ipairs(JynxInternal.listfiles("jynx/autoexec")) do
-		loadstring(JynxInternal.readfile(a))
+		loadstring(JynxInternal.readfile(a))()
 	end
 end)
 task.spawn(function()
@@ -3301,11 +3301,11 @@ task.spawn(function()
 	end)
 	
 	script.Parent.Execute.MouseButton1Click:Connect(function()
-		loadstring(script.Parent.CodeBox.Text)
+		loadstring(script.Parent.CodeBox.Text)()
 	end)
 	
 	script.Parent.Clipboard.MouseButton1Click:Connect(function()
-		loadstring(getclipboard())
+		loadstring(getclipboard())()
 	end)
 	
 	script.Parent.CodeBox.Focused:Connect(function()
@@ -3387,7 +3387,7 @@ task.spawn(function()
 			local item, btnExec, btnOptions = createListItem(string.sub(a, 7 + #dir))
 			item.Parent = script.Parent.Faceplate.ScriptList
 			btnExec.MouseButton1Click:Connect(function()
-				loadstring(JynxInternal.readfile(a))
+				loadstring(JynxInternal.readfile(a))()
 			end)
 			btnOptions.MouseButton1Click:Connect(function()
 				script.Parent.Faceplate.ScriptList.Visible = false
@@ -3509,7 +3509,7 @@ task.spawn(function()
 	local function open(key)
 		JynxInternal.writefile("jynx/bin/autokey.txt", key)
 		for _, a in ipairs(JynxInternal.listfiles("jynx/autoexec")) do
-			loadstring(JynxInternal.readfile(a))
+			loadstring(JynxInternal.readfile(a))()
 		end
 		script.Parent.Parent.GuiButton.Visible = true
 		script.Parent:Destroy()
